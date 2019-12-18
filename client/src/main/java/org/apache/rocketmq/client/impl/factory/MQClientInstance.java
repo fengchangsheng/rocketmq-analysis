@@ -156,6 +156,9 @@ public class MQClientInstance {
             MQVersion.getVersionDesc(MQVersion.CURRENT_VERSION), RemotingCommand.getSerializeTypeConfigInThisServer());
     }
 
+    /**
+     * 这个方法会将TopicRouteData放到新的TopicPublishInfo，并且创建 MessageQueue 放到 MessageQueueList
+     */
     public static TopicPublishInfo topicRouteData2TopicPublishInfo(final String topic, final TopicRouteData route) {
         TopicPublishInfo info = new TopicPublishInfo();
         info.setTopicRouteData(route);
@@ -585,6 +588,9 @@ public class MQClientInstance {
         }
     }
 
+    /**
+     * 从 NameServer 拉取最新的路由发布信息
+     */
     public boolean updateTopicRouteInfoFromNameServer(final String topic, boolean isDefault,
         DefaultMQProducer defaultMQProducer) {
         try {

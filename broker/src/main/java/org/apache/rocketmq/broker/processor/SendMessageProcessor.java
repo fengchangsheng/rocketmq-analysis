@@ -354,6 +354,7 @@ public class SendMessageProcessor extends AbstractSendMessageProcessor implement
             }
         }
 
+        // 刷盘？
         PutMessageResult putMessageResult = this.brokerController.getMessageStore().putMessage(msgInner);
 
         return handlePutMessageResult(putMessageResult, response, request, msgInner, responseHeader, sendMessageContext, ctx, queueIdInt);
